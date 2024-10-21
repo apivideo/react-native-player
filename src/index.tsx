@@ -5,7 +5,7 @@ import React, {
   useRef,
   type Ref,
 } from 'react';
-import { View, type StyleProp, type ViewStyle } from 'react-native';
+import { Linking, View, type StyleProp, type ViewStyle } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const PLAYER_HOST = 'https://embed.api.video';
@@ -298,6 +298,7 @@ const ApiVideoPlayer = forwardRef(
           onMessage={(msg) => onMessage(JSON.parse(msg.nativeEvent.data))}
           allowsInlineMediaPlayback={true}
           allowsFullscreenVideo={true}
+          onFileDownload={({ nativeEvent }) => Linking.openURL(nativeEvent.downloadUrl)}
           mediaPlaybackRequiresUserAction={false}
           injectedJavaScriptBeforeContentLoaded={`window.addEventListener('message', (m) => window.ReactNativeWebView.postMessage(JSON.stringify(m.data)))`}
         />
