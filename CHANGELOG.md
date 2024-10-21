@@ -2,8 +2,10 @@
 
 All changes to this project will be documented in this file.
 
-## [1.1.1] - 2024-07-17
+## [1.1.2] - 2024-10-21
+- Fix mp4 download on IOS
 
+## [1.1.1] - 2024-07-17
 - Add `isFullScreen` in `onFullScreenChange` event
 - Fix `chromeless`
 
